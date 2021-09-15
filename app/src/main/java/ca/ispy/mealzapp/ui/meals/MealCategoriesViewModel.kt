@@ -6,9 +6,7 @@ import ca.ispy.model.response.MealResponse
 import ca.ispy.model.response.MealsCategoriesResponse
 
 class MealCategoriesViewModel (private val repository : MealsRepository = MealsRepository()) : ViewModel() {
-    fun getMeals(successCallback: (response: MealsCategoriesResponse?) -> Unit) { //callbacks come in the future
-        repository.getMeals() { response ->
-            successCallback(response)
-        }
+    suspend fun getMeals() : List<MealResponse> {
+        return repository.getMeals().categories
     }
 }
