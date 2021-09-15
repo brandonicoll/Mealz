@@ -27,23 +27,3 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun MealsCategoriesScreen() {
-    val viewModel: MealCategoriesViewModel = viewModel()
-    val meals = viewModel.mealsState.value
-
-    LazyColumn{
-        items(meals) { meal ->
-            Text(text = meal.name)
-        }
-    }
-
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    MealzAppTheme {
-        MealsCategoriesScreen()
-    }
-}

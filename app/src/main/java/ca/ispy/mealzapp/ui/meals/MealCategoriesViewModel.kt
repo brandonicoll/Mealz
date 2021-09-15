@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 
 class MealCategoriesViewModel (private val repository : MealsRepository = MealsRepository()) : ViewModel() {
 
-    init {
+    init { //run coroutine when viewmodel is initialed becuase its only called in the composable (when composable is gone this is too)
         viewModelScope.launch(Dispatchers.IO) {
             val meals = getMeals()
             mealsState.value = meals
